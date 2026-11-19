@@ -1,8 +1,8 @@
 // Mantra library. Each entry: topic, feel (how the user feels), block (what stops them), en, he.
 // he = masculine Hebrew, heF = feminine Hebrew.
 // topic: confidence | calm | focus | selflove | courage | energy
-// feel:  anxious | tired | doubtful | scattered
-// block: fear | delay | critic | fatigue
+// feel:  good | motivated | anxious | tired | doubtful | scattered
+// block: none | fear | delay | critic | fatigue
 // Original text written for Actogrow. Do not copy mantras from books or other apps.
 const MANTRAS = [
   // confidence
@@ -63,5 +63,18 @@ const MANTRAS = [
   { topic: "energy", feel: "doubtful", block: "delay", en: "My future self is thanking me right now.", he: "העצמי שלי מהעתיד מודה לי עכשיו.", heF: "העצמי שלי מהעתיד מודה לי עכשיו." },
   { topic: "energy", feel: "anxious", block: "fatigue", en: "I refill before I give.", he: "אני ממלא את עצמי לפני שאני נותן.", heF: "אני ממלאת את עצמי לפני שאני נותנת." },
   { topic: "energy", feel: "tired", block: "critic", en: "Today I do what I can, and that is enough.", he: "היום אני עושה מה שאני יכול, וזה מספיק.", heF: "היום אני עושה מה שאני יכולה, וזה מספיק." },
-  { topic: "energy", feel: "scattered", block: "delay", en: "I start before I feel like it.", he: "אני מתחיל עוד לפני שבא לי.", heF: "אני מתחילה עוד לפני שבא לי." }
+  { topic: "energy", feel: "scattered", block: "delay", en: "I start before I feel like it.", he: "אני מתחיל עוד לפני שבא לי.", heF: "אני מתחילה עוד לפני שבא לי." },
+  // positive states: feel good | motivated, block none
+  { topic: "confidence", feel: "good", block: "none", en: "I am proof that small steps work.", he: "אני ההוכחה שצעדים קטנים עובדים.", heF: "אני ההוכחה שצעדים קטנים עובדים." },
+  { topic: "confidence", feel: "motivated", block: "none", en: "Today I raise my own bar.", he: "היום אני מעלה את הרף של עצמי.", heF: "היום אני מעלה את הרף של עצמי." },
+  { topic: "calm", feel: "good", block: "none", en: "I enjoy this moment without rushing to the next one.", he: "אני נהנה מהרגע הזה בלי למהר לבא.", heF: "אני נהנית מהרגע הזה בלי למהר לבא." },
+  { topic: "calm", feel: "motivated", block: "none", en: "Steady energy takes me further than a rush.", he: "אנרגיה יציבה לוקחת אותי רחוק יותר מריצה מהירה.", heF: "אנרגיה יציבה לוקחת אותי רחוק יותר מריצה מהירה." },
+  { topic: "focus", feel: "motivated", block: "none", en: "I turn this energy into one finished task.", he: "אני הופך את האנרגיה הזאת למשימה אחת שהושלמה.", heF: "אני הופכת את האנרגיה הזאת למשימה אחת שהושלמה." },
+  { topic: "focus", feel: "good", block: "none", en: "Good days are for building good habits.", he: "ימים טובים הם הזמן לבנות הרגלים טובים.", heF: "ימים טובים הם הזמן לבנות הרגלים טובים." },
+  { topic: "selflove", feel: "good", block: "none", en: "I notice what I did well today.", he: "אני שם לב למה שעשיתי טוב היום.", heF: "אני שמה לב למה שעשיתי טוב היום." },
+  { topic: "selflove", feel: "motivated", block: "none", en: "I grow because I care about myself.", he: "אני גדל כי אכפת לי מעצמי.", heF: "אני גדלה כי אכפת לי מעצמי." },
+  { topic: "courage", feel: "motivated", block: "none", en: "Today I do the thing I have been avoiding.", he: "היום אני עושה את הדבר שדחיתי.", heF: "היום אני עושה את הדבר שדחיתי." },
+  { topic: "courage", feel: "good", block: "none", en: "I use my good mood to try something new.", he: "אני מנצל את מצב הרוח הטוב כדי לנסות משהו חדש.", heF: "אני מנצלת את מצב הרוח הטוב כדי לנסות משהו חדש." },
+  { topic: "energy", feel: "motivated", block: "none", en: "My momentum is a gift, and I use it well.", he: "התנופה שלי היא מתנה, ואני משתמש בה נכון.", heF: "התנופה שלי היא מתנה, ואני משתמשת בה נכון." },
+  { topic: "energy", feel: "good", block: "none", en: "Today I share my good energy with someone.", he: "היום אני חולק את האנרגיה הטובה שלי עם מישהו.", heF: "היום אני חולקת את האנרגיה הטובה שלי עם מישהו." }
 ].map((m, i) => ({ id: i, ...m }));

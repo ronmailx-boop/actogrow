@@ -25,6 +25,9 @@ const T = {
   q1: { en: "How do you feel right now?", he: "איך אתה מרגיש עכשיו?", hf: "איך את מרגישה עכשיו?" },
   q2: { en: "What do you need more of today?", he: "מה הכי חסר לך היום?" },
   q3: { en: "What's getting in your way?", he: "מה עוצר אותך?" },
+  good: { en: "Good", he: "טוב", hf: "טובה" },
+  motivated: { en: "Motivated", he: "מלא מוטיבציה", hf: "מלאת מוטיבציה" },
+  none: { en: "Nothing, I'm on a roll", he: "כלום, אני בתנופה" },
   anxious: { en: "Anxious", he: "לחוץ", hf: "לחוצה" },
   tired: { en: "Tired", he: "עייף", hf: "עייפה" },
   doubtful: { en: "Unsure of myself", he: "לא בטוח בעצמי", hf: "לא בטוחה בעצמי" },
@@ -236,9 +239,9 @@ function home() {
 }
 
 const QUESTIONS = [
-  { key: "feel", q: "q1", opts: ["anxious", "tired", "doubtful", "scattered"] },
+  { key: "feel", q: "q1", opts: ["good", "motivated", "anxious", "tired", "doubtful", "scattered"] },
   { key: "topic", q: "q2", opts: TOPICS },
-  { key: "block", q: "q3", opts: ["fear", "delay", "critic", "fatigue"] }
+  { key: "block", q: "q3", opts: ["fear", "delay", "critic", "fatigue", "none"] }
 ];
 
 function ask(i) {
