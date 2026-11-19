@@ -51,6 +51,7 @@ const T = {
   reviewed: { en: "Reviewed. +1 growth", he: "חזרת עליו. 1+ צמיחה" },
   tryAgain: { en: "Not quite. Read it again and try once more.", he: "כמעט. כדאי לקרוא שוב ולנסות עוד פעם." },
   showMantra: { en: "Show the mantra", he: "להציג את המשפט" },
+  back: { en: "Back", he: "חזרה" },
   home: { en: "Back to my grove", he: "חזרה לחורשה שלי" },
   stats: { en: "{l} of {t} mantras learned · {s}-day streak", he: "{l} מתוך {t} משפטים נלמדו · ימים ברצף: {s}" },
   empty: { en: "No mantras yet. Answer 3 questions to reveal your first one.", he: "עוד אין משפטים. אפשר לענות על 3 שאלות ולחשוף את הראשון." },
@@ -246,12 +247,30 @@ const QUESTIONS = [
 
 function ask(i) {
   const Q = QUESTIONS[i];
+  let chosen = false;
   const opts = el("div", { class: "opts" },
-    Q.opts.map(o => btn(t(o), () => { flow[Q.key] = o; i < QUESTIONS.length - 1 ? ask(i + 1) : reveal(pick()); })));
-  screen(topbar(), el("section", { class: "card" },
+    Q.opts.map(o => {
+      const b = btn(t(o), () => {
+        if (chosen) return;            // ignore a second tap while moving on
+        chosen = true;
+        flow[Q.key] = o;
+        b.classList.add("picked");
+        setTimeout(() => { i < QUESTIONS.length - 1 ? ask(i + 1) : reveal(pick()); }, 220);
+      });
+      return b;
+    }));
+  // what the user already answered, so each question looks clearly different
+  const answered = QUESTIONS.slice(0, i).map(q => el("span", { class: "tag" }, t(flow[q.key])));
+  const dots = el("div", { class: "dots", "aria-hidden": "true" },
+    QUESTIONS.map((q, k) => el("i", { class: k < i ? "done" : k === i ? "now" : "" })));
+  const back = i > 0 ? btn((lang() === "he" ? "› " : "‹ ") + t("back"), () => ask(i - 1), "link") : null;
+  screen(topbar(), el("section", { class: "card enter" },
+    dots,
     el("div", { class: "eyebrow" }, t("qOf", { n: i + 1 })),
+    answered.length ? el("div", { class: "tags" }, answered) : null,
     el("h1", null, t(Q.q)),
-    opts));
+    opts,
+    back));
 }
 
 function pick() {
